@@ -16,7 +16,7 @@ export default function PaymentModal(){
     const { isOpen, onOpen, onClose } = useDisclosure()
     return(
         <div className="payment-modal">
-<Button onClick={onOpen}>Make Payment</Button>
+<Button onClick={onOpen}>Add</Button>
 
 <Modal blockScrollOnMount={true} isOpen={isOpen} onClose={onClose} isCentered>
   <ModalOverlay />
