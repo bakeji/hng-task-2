@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import { Link } from "react-router-dom";
+import SideNav from "../sidenav";
+import { BagContext } from "../context/bagContext";
 
 export default function Header(){
+    const {cartItems}= useContext(BagContext)
     return(
         <header>
             <div className="logo">
+                <Link to="/">
                 <img src="images/logo.png" alt="logo" />
-
+                </Link>
             </div>
 
             <div className="links">
-                 <a href="/">Home</a>
-                 <a href="#">Men</a>
-                 <a href="#">Women</a>
-                 <a href="#">Kids</a>
-                 <a href="#">Sales</a>
+                <Link to="/">Home </Link>
+                 
+                 <AnchorLink href="#men">Men</AnchorLink>
+                 <AnchorLink href="#women">Women</AnchorLink>
+                 <AnchorLink href="#kids">Kids</AnchorLink>
+                 <AnchorLink href="#sales">Sales</AnchorLink>
             </div>
 
             <div className="search-lnk">
@@ -22,10 +29,17 @@ export default function Header(){
                     <input type="search" placeholder="search" />
                 </div>
 
-                <button><img src="images/liked.png" alt="like" /></button>
+                <button className="lk"><img src="images/liked.png" alt="like" /></button>
+               
+                <Link style={{textDecoration: "none", display: "flex", alignItems: "start"}}  to="/cart">
+                
                 <button><img src="images/cart.png" alt="cart" /></button>
-                <button><img src="images/prof.png" alt="profile" /></button>
+               {cartItems !== 0&& <span className="crt">{cartItems}</span>}
+                </Link>
+                <SideNav  />
+                <button className="profile"><img src="images/prof.png" alt="profile" /></button>
             </div>
+
 
         </header>
     )

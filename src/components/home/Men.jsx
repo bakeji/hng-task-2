@@ -1,23 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { BagContext } from "../context/bagContext";
+import { Link } from "react-router-dom";
 export default function MenBags(){
 
-    const {allBags} =useContext(BagContext)
+    const {allBags, addToCart, isAddedToCart, removeFromCart} =useContext(BagContext)
+    const [liked, setLiked] =useState({})
 
+
+    function likeBtn(id) {
+        setLiked(prevLikedItems => ({
+            ...prevLikedItems,
+            [id]: !prevLikedItems[id]
+        }));
+    }
+    
+  
     return(
-        <div className="Mn-bags">
+        <div id="men" className="Mn-bags">
             <h2 className="bg-hd">Men bags</h2>
 
 <div className="grid">
 
     {allBags?.MenBags?.map((menBags)=>(
 
-    <div className="card">
+    <div key={menBags.id} className="card">
         <div className="bg-lk">
             <div className="img">
                 <img src={menBags.pic} alt="bags" />
             </div>
-            <button> <img src="images/liked.png" alt="like-btn" /></button>
+            <button onClick={()=>likeBtn(menBags.id)}> <img src={liked[menBags.id]? 'images/heart1.png':"images/liked.png"} alt="like-btn" /></button>
         </div>
 
         <p className="name">{menBags.name}</p>
@@ -41,14 +52,15 @@ export default function MenBags(){
         </div>}
 
         <div className="prices">
-            <p className="disc">{menBags.discPrice}</p>
+            <p className="disc">₦{menBags.discPrice}.00</p>
             <p className="old">{menBags.price}</p>
         </div>
         <p className="rem">{`${menBags.remaining} pieces remaining`} </p>
 
         <div className="button">
-            <button>Buy Now</button>
-            <button> Add to Cart</button>
+        <Link to="/payment"><button className ="bn">Buy Now</button></Link>
+            <button className = "adc" onClick={()=> isAddedToCart(menBags.id)? removeFromCart(menBags.id): addToCart(menBags)}>
+                {isAddedToCart(menBags.id)? "Remove from cart": " Add to Cart"}</button>
         </div>
     </div>
 

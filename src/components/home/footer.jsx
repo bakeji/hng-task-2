@@ -6,6 +6,15 @@ export default function Footer(){
             <div className="ft-flx">
                 <div className="ft-flx1">
                     <p>Choose Stardrip and choose easy for yourself</p>
+
+                        <div className="ft-flx4">
+                            <h1>Follow us</h1>
+                            <div className="img1">
+                                <button><img src="images/fb.png" alt="facebook" /></button>
+                                <button><img src="images/twi.png" alt="twitter" /></button>
+                                <button><img src="images/ig.png" alt="" /></button>
+                            </div>
+                        </div>
                 </div>
 
                     <div className="ft-flx2">
@@ -18,7 +27,7 @@ export default function Footer(){
 
                     <div className="ft-flx3">
                         <h1>Follow us</h1>
-                        <div className="img">
+                        <div className="img1">
                             <button><img src="images/fb.png" alt="facebook" /></button>
                             <button><img src="images/twi.png" alt="twitter" /></button>
                             <button><img src="images/ig.png" alt="" /></button>

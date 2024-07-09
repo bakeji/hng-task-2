@@ -1,17 +1,15 @@
 import React from "react";
 import Header from "../components/home/header";
-import CartItems from "../components/cart/cartItems";
+import PaymentForm from "../components/payment/paymentform";
 import Footer from "../components/home/footer";
-export default function CartPage(){
 
-    
+export default function Payment(){
     return(
-        <div className="cart">
+        <div className="payment">
             <Header />
             <hr />
-            <CartItems />
+            <PaymentForm />
             <Footer />
-           
         </div>
     )
 }

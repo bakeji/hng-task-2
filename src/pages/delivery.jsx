@@ -1,17 +1,15 @@
 import React from "react";
 import Header from "../components/home/header";
-import CartItems from "../components/cart/cartItems";
+import DeliveryForm from "../components/Delivery/deliveryform";
 import Footer from "../components/home/footer";
-export default function CartPage(){
 
-    
+export default function Delivery(){
     return(
-        <div className="cart">
+        <div className="delivery">
             <Header />
             <hr />
-            <CartItems />
+            <DeliveryForm />
             <Footer />
-           
         </div>
     )
 }

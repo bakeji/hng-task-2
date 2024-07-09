@@ -1,25 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { BagContext } from "../context/bagContext";
+import { Link } from "react-router-dom";
 export default function WomenBags(){
 
-    const {allBags} =useContext(BagContext)
-    
+    const {allBags, addToCart, isAddedToCart, removeFromCart} =useContext(BagContext)
+    const [liked, setLiked] =useState({})
+
+    function likeBtn(id) {
+        setLiked(prevLikedItems => ({
+            ...prevLikedItems,
+            [id]: !prevLikedItems[id]
+        }));
+    }
 
 
     return(
-        <div className="Mn-bags">
+        <div id="women" className="Mn-bags">
             <h2 className="bg-hd">Women bags</h2>
 
 <div className="grid">
 
     {allBags?.WomenBags?.map((womenBags)=>(
 
-    <div className="card">
+    <div key={womenBags.id} className="card">
         <div className="bg-lk">
             <div className="img">
                 <img src={womenBags.pic} alt="bags" />
             </div>
-            <button> <img src="images/liked.png" alt="like-btn" /></button>
+            <button onClick={()=>likeBtn(womenBags.id)}> <img src={liked[womenBags.id]? 'images/heart1.png':"images/liked.png"} alt="like-btn" /></button>
         </div>
 
         <p className="name">{womenBags.name}</p>
@@ -44,14 +52,15 @@ export default function WomenBags(){
         </div>}
 
         <div className="prices">
-            <p className="disc">{womenBags.discPrice}</p>
+            <p className="disc">₦{womenBags.discPrice}.00</p>
             <p className="old">{womenBags.price}</p>
         </div>
         <p className="rem">{`${womenBags.remaining} pieces remaining`}</p>
 
         <div className="button">
-            <button>Buy Now</button>
-            <button> Add to Cart</button>
+        <Link to="/payment"><button className="bn">Buy Now</button></Link>
+            <button className="adc" onClick={()=> isAddedToCart(womenBags.id)? removeFromCart(womenBags.id): addToCart(womenBags)}>
+            {isAddedToCart(womenBags.id)? "Remove from cart": " Add to Cart"}</button>
         </div>
     </div>
 
