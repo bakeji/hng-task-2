@@ -774,4 +774,13 @@ width: 100%;
     .hm2,.hm, .hm2 div{
         display: grid;
     }
+    .hm2 input, .str-nm input, .area-nm input{
+        width:13gi0px
+    }
+    .hn input{
+        width: 60px;
+    }
+    .hn label{
+        width:max-content;
+    }
 }
