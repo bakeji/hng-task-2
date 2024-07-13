@@ -76,12 +76,12 @@ export default function CartItems(){
                 <div key={cartItem.id} className="item-info">
                     <div className="item">
                         <div className="item-img">
-                            <img src={cartItem.pic} alt="bag" />
+                            <img src= {`https://api.timbu.cloud/images/${cartItem?.photos[0]?.url}`} alt="bag" />
                         </div>
 
                         <div className="item-name">
                             <p>{cartItem.name}</p>
-                            <p>{cartItem.code}</p>
+                            <p>#mn7654</p>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@ export default function CartItems(){
                     </div>
 
                     <div className="pr">
-                        <p>₦{cartItem.discPrice * quantity[cartItem.id ||1]}.00</p>
+                        <p>₦{cartItem?.current_price[0]?.NGN[0] * quantity[cartItem.id ||1]}.00</p>
 
                         <div className="cls-btn">
                             <button onClick={()=>removeFromCart(cartItem.id)}><img src="images/cls.png" alt="" /></button>

@@ -25,6 +25,14 @@ header{
     gap: 20px;
     
 }
+.nm{
+    font-style: bold;
+    color: #F25700;
+}
+.prod-desc{
+    text-align: left;
+    margin-bottom: 40px;
+}
 
 .links a{
     text-decoration: none;
@@ -76,6 +84,7 @@ hr{
     width: 90%;
     margin: 30px auto 0;
     display: flex;
+    justify-content: space-between;
     align-items: start;
     gap: 40px;
 }
@@ -197,9 +206,19 @@ hr{
     gap: 40px;
     
 }
+.prod-mod{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
 .name{
     font-weight: 400;
     font-size: 14px;
+    cursor: pointer;
     padding: 8px;
 }
 .star{
@@ -252,6 +271,75 @@ hr{
     outline: none;
     border: none;
 }
+.pagn{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.pag{
+    display: flex;
+    border: 1px solid #F25700;
+}
+.pag-btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border:1px solid#F25700;
+    
+}
+.pag-btn:hover{
+    background: #F25700;
+    color: #FFFFFF;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+.pag button{
+    padding: 15px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.pag-btn1{
+    background: #F25700;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border:1px solid #000000;
+
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+  }
+  
+  .loading-spinner {
+    border: 4px solid #ffffff;
+    border-left: 4px solid #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  .loading-container p{
+    font-weight: 600;
+    font-size: 30px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: italic;
+  }
 footer{
     width: 100%;
     background: #000000;

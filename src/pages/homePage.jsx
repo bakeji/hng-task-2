@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../components/home/header";
 import HeroSection from "../components/home/heroSection";
-import TrendingBags from "../components/home/trending";
-import MenBags from "../components/home/Men";
-import WomenBags from "../components/home/women";
-import KidsBags from "../components/home/kids";
+import MenBags from "../components/home/bags";
 import Footer from "../components/home/footer";
+import Pagination from "../components/home/pagination";
+import { BagContext } from "../components/context/bagContext";
+import Loading from "../components/home/loading";
 export default function Homepage(){
+    const{loading}= useContext(BagContext)
 
   
 
@@ -18,10 +19,16 @@ export default function Homepage(){
             <hr />
             <HeroSection />
             <hr />
-            <TrendingBags  />
+            <>
+{loading?
+            <Loading/> 
+            :
             <MenBags />
-            <KidsBags />
-            <WomenBags />
+}</>
+            
+           <div className="pagn">
+                <Pagination />
+           </div>
             <Footer />
 
         </div>
