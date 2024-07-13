@@ -39,24 +39,16 @@ export default function MenBags(){
             <button onClick={()=>likeBtn(bags?.id)}> <img src={liked[bags?.id]? 'images/heart1.png':"images/liked.png"} alt="like-btn" /></button>
         </div>
             <ProductDet selectedProduct={selectedProduct} name = {bags?.name} handleClick={()=>handleProductClick(bags)}/>
-            {bags.star===5 &&
-        <div className="star"> 
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-        </div>}
+          
 
-            {bags.star ===4 &&
+           
             <div className="star">
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-            <img src="images/star.png" alt="star" />
-            <img src="images/str-n.png" alt="star" />
-            
-        </div>}
+                <img src="images/star.png" alt="star" />
+                <img src="images/star.png" alt="star" />
+                <img src="images/star.png" alt="star" />
+                <img src="images/star.png" alt="star" />
+                <img src="images/str-n.png" alt="star" />
+            </div>
 
         <div className="prices">
             <p className="disc">₦{bags?.current_price[0]?.NGN[0]}.00</p>
