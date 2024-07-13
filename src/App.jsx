@@ -13,7 +13,7 @@ export default function App(){
   const [cart, setCart]= useState([])
   const [cartItems, setCartItems]= useState(0)
   const [currentPage, setCurrentPage]= useState(1)
-  const Category = ["Men Bags", "Women Bags", "Kids Bags"];
+  const Category = ["Kids Bags", "Women Bags", "Men Bags",];
 
 async function fetchApi(){
   setLoading(true)
