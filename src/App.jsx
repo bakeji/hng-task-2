@@ -22,7 +22,7 @@ async function fetchApi(){
   const appId= import.meta.env.VITE_APP_ID;
   const orgId = import.meta.env.VITE_ORG_ID;
   try{
-    const response = await fetch(`/api/products?organization_id=${orgId}&reverse_sort=true&page=${currentPage}&size=10&Appid=${appId}&Apikey=${apiKey}`)
+    const response = await fetch(`'https://api.timbu.cloud/products?organization_id=${orgId}&reverse_sort=true&page=${currentPage}&size=10&Appid=${appId}&Apikey=${apiKey}`)
     const data = await response.json()
     setData(data.items)
   }

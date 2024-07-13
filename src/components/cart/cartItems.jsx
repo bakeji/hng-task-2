@@ -19,7 +19,7 @@ export default function CartItems(){
 
     useEffect(() => {
         const newTotal = cart.reduce((acc, item) => {
-            return acc + (item.discPrice * (quantity[item.id] || 1));
+            return acc + (item.current_price[0]?.NGN[0] * (quantity[item.id] || 1));
         }, 0);
         setTotal(newTotal);
     }, [cart, quantity]);
